@@ -12,3 +12,6 @@ jobs:
       - run: ci/unit-test-app.sh      
       - store_test_results:
           path: app/build/test-results
+      - store_artifacts:
+          path: app/build/libs
+          destination: prefix
