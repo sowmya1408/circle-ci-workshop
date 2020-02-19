@@ -1,6 +1,6 @@
 version: 2.0
 jobs:
-  build:
+  test:
     docker:
       - image: gradle:jdk11
     steps:
@@ -12,6 +12,15 @@ jobs:
       - run: ci/unit-test-app.sh      
       - store_test_results:
           path: app/build/test-results
+  build:
+    docker:
+      - image: gradle:jdk11
+    steps:
+      - checkout
+      - run:
+          name: The First Step
+          command: |
+            ci/build-app.sh
       - store_artifacts:
           path: app/build/libs
-          destination: prefix
+          destination: prefix        
