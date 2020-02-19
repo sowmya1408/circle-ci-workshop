@@ -4,8 +4,10 @@ jobs:
     docker:
       - image: gradle:jdk11
     steps:
-      - checkout:
+      - checkout
       - run:
           name: The First Step
           command: |
-            ci/build-app.sh
+            ci/unit-test-app.sh
+      - store_test_results:
+          path: test-results
