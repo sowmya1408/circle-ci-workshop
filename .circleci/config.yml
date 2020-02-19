@@ -23,4 +23,10 @@ jobs:
             ci/build-app.sh
       - store_artifacts:
           path: app/build/libs
-          destination: prefix        
+          destination: prefix  
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - test  
